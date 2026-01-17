@@ -1,1 +1,57 @@
+/* General Layout */
+body {
+    transition: background-color 0.3s, color 0.3s;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
+/* Blur kan nav bar */
+.navbar-glass {
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+/* Hero Section Styling */
+.hero-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 60vh;
+}
+
+/* Card Hover Effects - Feedback for user */
+/* Shneiderman's 3rd Rule) that the element is interactive. */
+.card-custom {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-custom:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* DARK MODE OVERRIDES */
+/* att bs nak tukar theme jadi dark mode */
+[data-bs-theme="dark"] body {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+[data-bs-theme="dark"] .navbar-glass {
+    background-color: rgba(33, 37, 41, 0.85);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+[data-bs-theme="dark"] .hero-section {
+    background: linear-gradient(135deg, #1f2833 0%, #0b0c10 100%);
+}
+
+[data-bs-theme="dark"] .card-custom {
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+[data-bs-theme="dark"] .text-muted {
+    color: #a0a0a0 !important;
+}
