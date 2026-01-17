@@ -1,1 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UiTM Career Path Quiz</title>
+    <link rel="stylesheet" href="cqp.css">
+</head>
+<body>
+    <header>
+        <h2>Career Path Quiz</h2>
+        <center>
+            <nav>
+                <a href="home">Home</a> |
+                <a href="about">About</a> |
+                <a href="skillsread">Skillsread</a> |
+                <a href="career quiz page.html">Careerquiz</a>
+            </nav>
+        </center>
+    </header>
 
+    <main id="quiz-container">
+        <div class="progress" id="quiz-progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <form id="quizForm">
+            <div class="question active">
+                <p>1. What type of activities do you enjoy most?</p>
+                <input type="radio" name="q1" value="tech"> Solving problems<br>
+                <input type="radio" name="q1" value="people"> Helping people<br>
+                <input type="radio" name="q1" value="creative"> Creating/designing<br>
+                <input type="radio" name="q1" value="business"> Organising tasks
+            </div>
+
+            <div class="question">
+                <p>2. Which environment do you prefer to work in?</p>
+                <input type="radio" name="q2" value="business"> Office/business<br>
+                <input type="radio" name="q2" value="creative"> Creative/flexible<br>
+                <input type="radio" name="q2" value="people"> Educational/training<br>
+                <input type="radio" name="q2" value="people"> Health/community
+            </div>
+
+            <div class="question">
+                <p>3. Which statement describes you best?</p>
+                <input type="radio" name="q3" value="business"> Planning & organising<br>
+                <input type="radio" name="q3" value="creative"> Creative ideas<br>
+                <input type="radio" name="q3" value="people"> Good communication<br>
+                <input type="radio" name="q3" value="tech"> Problem solving
+            </div>
+
+            <div class="question">
+                <p>4. What do people often compliment you on?</p>
+                <input type="radio" name="q4" value="business"> Leadership<br>
+                <input type="radio" name="q4" value="creative"> Creativity<br>
+                <input type="radio" name="q4" value="people"> Responsibility<br>
+                <input type="radio" name="q4" value="tech"> Technical/practical skills
+            </div>
+
+            <div class="question">
+                <p>5. How confident are you in learning new skills?</p>
+                <input type="radio" name="q5" value="tech"> Very confident<br>
+                <input type="radio" name="q5" value="business"> Confident<br>
+                <input type="radio" name="q5" value="people"> Not very confident<br>
+                <input type="radio" name="q5" value="people"> Need guidance
+            </div>
+
+            <div class="question">
+                <p>6. Which skill do you feel strongest in?</p>
+                <input type="radio" name="q6" value="people"> Communication<br>
+                <input type="radio" name="q6" value="creative"> Creativity<br>
+                <input type="radio" name="q6" value="tech"> Problem-solving<br>
+                <input type="radio" name="q6" value="business"> Organisation
+            </div>
+
+            <div class="question">
+                <p>7. How do you prefer to work?</p>
+                <input type="radio" name="q7" value="tech"> Independently<br>
+                <input type="radio" name="q7" value="people"> In a team<br>
+                <input type="radio" name="q7" value="business"> Leading others<br>
+                <input type="radio" name="q7" value="people"> With guidance
+            </div>
+
+            <div class="question">
+                <p>8. What motivates you most at work?</p>
+                <input type="radio" name="q8" value="business"> Career growth<br>
+                <input type="radio" name="q8" value="people"> Helping others<br>
+                <input type="radio" name="q8" value="creative"> Creativity & freedom<br>
+                <input type="radio" name="q8" value="business"> Stability & security
+            </div>
+
+            <div class="question">
+                <p>9. What is your main career goal?</p>
+                <input type="radio" name="q9" value="business"> Professional growth<br>
+                <input type="radio" name="q9" value="people"> Work-life balance<br>
+                <input type="radio" name="q9" value="people"> Positive impact<br>
+                <input type="radio" name="q9" value="business"> Financial stability
+            </div>
+
+            <div class="question">
+                <p>10. Are you open to learning new skills?</p>
+                <input type="radio" name="q10" value="tech"> Yes, definitely<br>
+                <input type="radio" name="q10" value="business"> Yes, with guidance<br>
+                <input type="radio" name="q10" value="people"> Maybe<br>
+                <input type="radio" name="q10" value="people"> Not sure
+            </div>
+
+            <div class="button-group">
+                <button type="button" class="btn-back" onclick="prevQuestion()">Back</button>
+                <button type="button" class="btn-next" id="nextBtn" onclick="nextQuestion()" disabled>Next</button>
+            </div>
+        </form>
+
+        <div id="result-section">
+            <h2 id="result-display"></h2>
+            
+            <div class="result-details">
+                <div class="result-box">
+                    <h3>Career Path</h3>
+                    <p id="print-career"></p>
+                </div>
+                
+                <div class="result-box">
+                    <h3>Description</h3>
+                    <p id="career-description"></p>
+                </div>
+                
+                <div class="result-box">
+                    <h3>Key Skills</h3>
+                    <ul id="skill-list"></ul>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="btn-action" onclick="window.print()">Print My Result</button>
+                <button class="btn-action" onclick="location.reload()">Submit Another Response</button>
+            </div>
+            
+            <hr>
+            <div id="feedback-area">
+                <h3>Feedback Form</h3>
+                <p>How was your experience with this quiz?</p>
+                <textarea id="feedbackText" placeholder="Your thoughts..."></textarea><br>
+                <button class="btn-next" onclick="alert('Thank you for your feedback!')">Submit Feedback</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <h4>Page Information</h4>
+        <p>Created for ITT588 Group Project</p>
+        <p>&copy; 2026 Supernova. All content is original and for academic purposes.</p>
+        <p>Universiti Teknologi MARA (UiTM)</p>
+    </footer>
+
+    <script src="cqp.js"></script>
+</body>
+</html>
