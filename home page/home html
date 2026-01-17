@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<!-- data-bs-theme (att bootstrap), masuk web start dengan light mode by default -->
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Path & Skill Portal - Home</title>
+    
+    <!-- link dengan bs server, nak load pre-written css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- load bs icon lib -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
 
+    <!-- navbar-expand-lg; kecikkan menu ikut size device -->
+    <!-- sticky-top;  make sure menu stay dekat atas bila scrolling-->
+    <nav class="navbar navbar-expand-lg navbar-glass sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="bi bi-compass-fill text-primary"></i> CareerExplorer
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Assessment</a></li> <li class="nav-item"><a class="nav-link" href="#">Results</a></li> <li class="nav-item"><a class="nav-link" href="#">About Us</a></li> <li class="nav-item ms-3">
+                        <!-- untuk dark mode -->
+                        <button id="themeToggle" class="btn btn-outline-primary btn-sm rounded-pill">
+                            <i class="bi bi-moon-stars-fill" id="themeIcon"></i> 
+                            <span class="d-lg-none ms-2">Toggle Theme</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section text-center d-flex align-items-center">
+        <div class="container">
+
+            <div class="row justify-content-center">
+              <!-- bs grid class untuk sizing content; 8 dari 12 columns-->
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-3">Discover Your Future Career Path</h1>
+                    <p class="lead mb-4">
+                        Unsure where your skills belong? Our portal analyzes your interests, strengths, 
+                        and skills to recommend the best IT career path for you.
+                    </p>
+                    <!-- guna class exit dalam bs -->
+                    <a href="#" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow hover-effect">
+                        Start Assessment <i class="bi bi-arrow-right-short"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">How It Works</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4 card-custom">
+                        <div class="icon-box mb-3 text-primary">
+                            <i class="bi bi-person-lines-fill fs-1"></i>
+                        </div>
+                        <h5>1. Input Details</h5>
+                        <p class="text-muted">Enter your personal interests, current technical skills, and strengths.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4 card-custom">
+                        <div class="icon-box mb-3 text-primary">
+                            <i class="bi bi-cpu-fill fs-1"></i>
+                        </div>
+                        <h5>2. System Analysis</h5>
+                        <p class="text-muted">Our logic processes your data to match you with industry roles.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4 card-custom">
+                        <div class="icon-box mb-3 text-primary">
+                            <i class="bi bi-clipboard-data-fill fs-1"></i>
+                        </div>
+                        <h5>3. Get Results</h5>
+                        <p class="text-muted">Receive a downloadable summary and readiness checklist.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 text-center border-top mt-auto">
+        <div class="container">
+            <p class="mb-0 text-muted">&copy; 2026 Group 5. ITT588 Project. [cite: 1]</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="home.js"></script>
+</body>
+</html>
