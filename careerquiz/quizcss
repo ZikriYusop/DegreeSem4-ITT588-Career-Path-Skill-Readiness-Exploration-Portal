@@ -1,253 +1,329 @@
-/* Updated Root Variables */
-:root {
-    --purple: #3D0B59;
-    --gold: #FFCC00;
-    --navy: #1A2B5F;
-    --bglight: #f4f4f4;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UiTM Career Path Quiz</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="cqp.css">
+</head>
+<body>
+    <header class="bg-purple text-white py-4">
+        <div class="container">
+            <h2 class="text-center mb-0">Career Path Quiz</h2>
+            <nav class="text-center mt-3">
+                <a href="home" class="text-white text-decoration-none mx-3 fw-bold">Home</a> |
+                <a href="about" class="text-white text-decoration-none mx-3 fw-bold">About</a> |
+                <a href="skillsread" class="text-white text-decoration-none mx-3 fw-bold">Skillsread</a> |
+                <a href="career quiz page.html" class="text-white text-decoration-none mx-3 fw-bold">Careerquiz</a>
+            </nav>
+        </div>
+    </header>
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: var(--bglight);
-}
+    <main class="container my-5">
+        <div class="card shadow-lg">
+            <div class="card-body p-4 p-md-5">
+                <!-- Progress Bar -->
+                <div class="progress mb-4" style="height: 12px;">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" 
+                         id="progressBar" style="width: 0%"></div>
+                </div>
 
-/* Header Section */
-header {
-    background-color: var(--purple);
-    color: white;
-    padding: 25px;
-    text-align: center;
-    border-bottom: 5px solid var(--gold);
-}
+                <!-- Quiz Form -->
+                <form id="quizForm">
+                    <!-- Question 1 -->
+                    <div class="question active">
+                        <h5 class="mb-4 text-primary">1. What type of activities do you enjoy most?</h5>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q1" value="tech" id="q1a">
+                            <label class="form-check-label" for="q1a">Solving problems</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q1" value="people" id="q1b">
+                            <label class="form-check-label" for="q1b">Helping people</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q1" value="creative" id="q1c">
+                            <label class="form-check-label" for="q1c">Creating/designing</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q1" value="business" id="q1d">
+                            <label class="form-check-label" for="q1d">Organising tasks</label>
+                        </div>
+                    </div>
 
-/* Nav Styling */
-nav {
-    margin-top: 15px;
-    font-size: 1rem;
-}
+                    <!-- Question 2 -->
+                    <div class="question">
+                        <h5 class="mb-4 text-primary">2. Which environment do you prefer to work in?</h5>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q2" value="business" id="q2a">
+                            <label class="form-check-label" for="q2a">Office/business</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q2" value="creative" id="q2b">
+                            <label class="form-check-label" for="q2b">Creative/flexible</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q2" value="people" id="q2c">
+                            <label class="form-check-label" for="q2c">Educational/training</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q2" value="people" id="q2d">
+                            <label class="form-check-label" for="q2d">Health/community</label>
+                        </div>
+                    </div>
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-    transition: color 0.3s;
-}
+                    <!-- Question 3 -->
+                    <div class="question">
+                        <h5 class="mb-4 text-primary">3. Which statement describes you best?</h5>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q3" value="business" id="q3a">
+                            <label class="form-check-label" for="q3a">Planning & organising</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q3" value="creative" id="q3b">
+                            <label class="form-check-label" for="q3b">Creative ideas</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q3" value="people" id="q3c">
+                            <label class="form-check-label" for="q3c">Good communication</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q3" value="tech" id="q3d">
+                            <label class="form-check-label" for="q3d">Problem solving</label>
+                        </div>
+                    </div>
 
-nav a:hover {
-    color: var(--gold);
-}
+                    <!-- Question 4 -->
+                    <div class="question">
+                        <h5 class="mb-4 text-primary">4. What do people often compliment you on?</h5>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q4" value="business" id="q4a">
+                            <label class="form-check-label" for="q4a">Leadership</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q4" value="creative" id="q4b">
+                            <label class="form-check-label" for="q4b">Creativity</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q4" value="people" id="q4c">
+                            <label class="form-check-label" for="q4c">Responsibility</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q4" value="tech" id="q4d">
+                            <label class="form-check-label" for="q4d">Technical/practical skills</label>
+                        </div>
+                    </div>
 
-/* Body Section */
-main {
-    flex: 1;
-    max-width: 900px;   
-    min-height: 75vh;   
-    width: 90%;
-    margin: 40px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
+                    <!-- Question 5 -->
+                    <div class="question">
+                        <h5 class="mb-4 text-primary">5. How confident are you in learning new skills?</h5>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q5" value="tech" id="q5a">
+                            <label class="form-check-label" for="q5a">Very confident</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q5" value="business" id="q5b">
+                            <label class="form-check-label" for="q5b">Confident</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q5" value="people" id="q5c">
+                            <label class="form-check-label" for="q5c">Not very confident</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q5" value="people" id="q5d">
+                            <label class="form-check-label" for="q5d">Need guidance</label>
+                        </div>
+                    </div>
 
-.progress {
-    background: #eee;
-    height: 15px;
-    border-radius: 10px;
-    margin-bottom: 25px;
-    overflow: hidden;
-}
+                    <!-- Question 6 -->
+                    <div class="question">
+                        <h5 class="mb-4 text-primary">6. Which skill do you feel strongest in?</h5>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q6" value="people" id="q6a">
+                            <label class="form-check-label" for="q6a">Communication</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q6" value="creative" id="q6b">
+                            <label class="form-check-label" for="q6b">Creativity</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q6" value="tech" id="q6c">
+                            <label class="form-check-label" for="q6c">Problem-solving</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q6" value="business" id="q6d">
+                            <label class="form-check-label" for="q6d">Organisation</label>
+                        </div>
+                    </div>
 
-.progress-bar {
-    height: 100%;
-    width: 0%;
-    background: var(--gold);
-    transition: width 0.3s ease-in-out;
-}
+                    <!-- Question 7 -->
+                    <div class="question">
+                        <h5 class="mb-4 text-primary">7. How do you prefer to work?</h5>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q7" value="tech" id="q7a">
+                            <label class="form-check-label" for="q7a">Independently</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q7" value="people" id="q7b">
+                            <label class="form-check-label" for="q7b">In a team</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q7" value="business" id="q7c">
+                            <label class="form-check-label" for="q7c">Leading others</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q7" value="people" id="q7d">
+                            <label class="form-check-label" for="q7d">With guidance</label>
+                        </div>
+                    </div>
 
-.question {
-    display: none;
-    line-height: 2.2;
-}
+                    <!-- Question 8 -->
+                    <div class="question">
+                        <h5 class="mb-4 text-primary">8. What motivates you most at work?</h5>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q8" value="business" id="q8a">
+                            <label class="form-check-label" for="q8a">Career growth</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q8" value="people" id="q8b">
+                            <label class="form-check-label" for="q8b">Helping others</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q8" value="creative" id="q8c">
+                            <label class="form-check-label" for="q8c">Creativity & freedom</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q8" value="business" id="q8d">
+                            <label class="form-check-label" for="q8d">Stability & security</label>
+                        </div>
+                    </div>
 
-.question.active {
-    display: block;
-}
+                    <!-- Question 9 -->
+                    <div class="question">
+                        <h5 class="mb-4 text-primary">9. What is your main career goal?</h5>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q9" value="business" id="q9a">
+                            <label class="form-check-label" for="q9a">Professional growth</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q9" value="people" id="q9b">
+                            <label class="form-check-label" for="q9b">Work-life balance</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q9" value="people" id="q9c">
+                            <label class="form-check-label" for="q9c">Positive impact</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q9" value="business" id="q9d">
+                            <label class="form-check-label" for="q9d">Financial stability</label>
+                        </div>
+                    </div>
 
-p {
-    font-weight: bold;
-    color: var(--navy);
-    font-size: 1.1rem;
-}
+                    <!-- Question 10 -->
+                    <div class="question">
+                        <h5 class="mb-4 text-primary">10. Are you open to learning new skills?</h5>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q10" value="tech" id="q10a">
+                            <label class="form-check-label" for="q10a">Yes, definitely</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q10" value="business" id="q10b">
+                            <label class="form-check-label" for="q10b">Yes, with guidance</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q10" value="people" id="q10c">
+                            <label class="form-check-label" for="q10c">Maybe</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="q10" value="people" id="q10d">
+                            <label class="form-check-label" for="q10d">Not sure</label>
+                        </div>
+                    </div>
 
-/* Buttons */
-.button-group {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #ddd;
-}
+                    <!-- Navigation Buttons -->
+                    <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+                        <button type="button" class="btn btn-secondary" onclick="prevQuestion()">Back</button>
+                        <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>Next</button>
+                    </div>
+                </form>
 
-button {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    text-transform: uppercase;
-}
+                <!-- Results Section -->
+                <div id="result-section">
+                    <div class="text-center mb-5">
+                        <h2 id="result-display" class="text-primary mb-3"></h2>
+                        <p class="lead">Based on your answers, here's your career recommendation</p>
+                    </div>
 
-.btn-next {
-    background-color: var(--purple);
-    color: white;
-}
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-4">
+                            <div class="card h-100 border-primary">
+                                <div class="card-header bg-primary text-white">
+                                    <h5 class="mb-0">Career Path</h5>
+                                </div>
+                                <div class="card-body">
+                                    <h4 id="print-career" class="text-center text-primary"></h4>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card h-100 border-info">
+                                <div class="card-header bg-info text-white">
+                                    <h5 class="mb-0">Description</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p id="career-description" class="mb-0"></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card h-100 border-warning">
+                                <div class="card-header bg-warning text-dark">
+                                    <h5 class="mb-0">Key Skills</h5>
+                                </div>
+                                <div class="card-body">
+                                    <ul id="skill-list" class="list-unstyled mb-0"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-.btn-next:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
+                    <div class="text-center mb-5">
+                        <button class="btn btn-outline-primary btn-lg me-3" onclick="window.print()">Print My Result</button>
+                        <button class="btn btn-primary btn-lg" onclick="location.reload()">Submit Another Response</button>
+                    </div>
 
-.btn-back {
-    background-color: var(--navy);
-    color: white;
-    margin-right: 10px;
-}
+                    <div id="feedback-area" class="mt-5 pt-5 border-top">
+                        <h3 class="mb-4">Feedback Form</h3>
+                        <p class="text-muted mb-4">How was your experience with this quiz?</p>
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <textarea id="feedbackText" class="form-control mb-3" placeholder="Your thoughts..." rows="4"></textarea>
+                                <button class="btn btn-success" onclick="submitFeedback()">Submit Feedback</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
-.btn-action {
-    background-color: #444;
-    color: white;
-    margin: 5px;
-}
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <h5 class="text-warning">Page Information</h5>
+            <p class="mb-1">Created for ITT588 Group Project</p>
+            <p class="mb-1">&copy; 2026 Supernova. All content is original and for academic purposes.</p>
+            <p class="mb-0">Universiti Teknologi MARA (UiTM)</p>
+        </div>
+    </footer>
 
-/* Results Section */
-#result-section {
-    display: none;
-    text-align: center;
-}
-
-#result-display {
-    color: var(--purple);
-    font-size: 1.5rem;
-    margin-bottom: 30px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid var(--gold);
-}
-
-.result-details {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin: 30px 0;
-    text-align: left;
-}
-
-.result-box {
-    flex: 1;
-    min-width: 250px;
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    border-left: 4px solid var(--purple);
-}
-
-.result-box h3 {
-    color: var(--navy);
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-}
-
-.result-box p {
-    color: #333;
-    font-weight: normal;
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-#skill-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-#skill-list li {
-    background: var(--gold);
-    color: var(--purple);
-    padding: 8px 15px;
-    margin: 5px 0;
-    border-radius: 20px;
-    display: inline-block;
-    margin-right: 10px;
-    font-weight: bold;
-}
-
-.action-buttons {
-    margin: 30px 0;
-}
-
-/* Feedback Form */
-#feedback-area {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #ddd;
-}
-
-textarea {
-    width: 100%;
-    height: 100px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-/* Footer Section */
-footer {
-    background-color: var(--navy);
-    color: #ffffff;
-    text-align: center;
-    padding: 30px 10px;
-    font-size: 0.9rem;
-    border-top: 3px solid var(--gold);
-}
-
-footer h4 {
-    color: var(--gold);
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-footer p {
-    margin: 5px 0;
-    color: #f0f0f0;
-    font-weight: normal;
-}
-
-/* Print Rules */
-@media print {
-    header, footer, .button-group, .progress, #feedback-area, .btn-action, .action-buttons {
-        display: none !important;
-    }
-    main { 
-        box-shadow: none; 
-        border: none; 
-        width: 100%;
-        margin: 0;
-        padding: 20px;
-    }
-    
-    .result-details {
-        display: block;
-    }
-    
-    .result-box {
-        margin-bottom: 20px;
-        break-inside: avoid;
-    }
-}
+    <!-- Bootstrap JS Bundle (Optional - only needed if you use Bootstrap JS components) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Your Custom JavaScript -->
+    <script src="cqp.js"></script>
+</body>
+</html>
