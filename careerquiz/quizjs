@@ -4,7 +4,6 @@ const nextBtn = document.getElementById("nextBtn");
 const quizForm = document.getElementById("quizForm");
 const resultSection = document.getElementById("result-section");
 const resultDisplay = document.getElementById("result-display");
-const quizProgress = document.getElementById("quiz-progress");
 
 let current = 0;
 const scores = {
@@ -14,7 +13,7 @@ const scores = {
     business: 0
 };
 
-// Career data
+// Career Data
 const careerMap = {
     tech: "Technology / IT",
     people: "Education / Healthcare / HR",
@@ -36,21 +35,41 @@ const careerSkills = {
     business: ["Leadership", "Planning", "Decision-making", "Strategic thinking", "Organization"]
 };
 
-// Event listener for radio button changes
+// Event Listener for Radio Buttons
 document.addEventListener("change", (e) => {
     if (e.target.type === "radio") {
         nextBtn.disabled = false;
     }
 });
 
+// Show Question Function
 function showQuestion(index) {
+    // Hide all questions
     questions.forEach(q => q.classList.remove("active"));
+    
+    // Show current question
     questions[index].classList.add("active");
-    progressBar.style.width = ((index + 1) / questions.length) * 100 + "%";
+    
+    // Update progress bar
+    const progressPercentage = ((index + 1) / questions.length) * 100;
+    progressBar.style.width = `${progressPercentage}%`;
+    
+    // Update button text if last question
+    if (index === questions.length - 1) {
+        nextBtn.textContent = "See Results";
+    } else {
+        nextBtn.textContent = "Next";
+    }
+    
+    // Check if current question has an answer
     const isChecked = questions[index].querySelector('input[type="radio"]:checked');
     nextBtn.disabled = !isChecked;
+    
+    // Update current index
+    current = index;
 }
 
+// Next Question Function
 function nextQuestion() {
     if (current < questions.length - 1) {
         current++;
@@ -60,6 +79,7 @@ function nextQuestion() {
     }
 }
 
+// Previous Question Function
 function prevQuestion() {
     if (current > 0) {
         current--;
@@ -67,50 +87,85 @@ function prevQuestion() {
     }
 }
 
+// Calculate Result Function
 function calculateResult() {
+    // Get all checked answers
     const checkedAnswers = document.querySelectorAll("input[type=radio]:checked");
+    
+    // Reset scores
     Object.keys(scores).forEach(key => scores[key] = 0);
+    
+    // Calculate scores
     checkedAnswers.forEach(ans => {
-        scores[ans.value]++;
+        if (ans.value in scores) {
+            scores[ans.value]++;
+        }
     });
-
+    
+    // Find best match
     let best = "";
     let max = 0;
+    let ties = [];
+    
     for (let key in scores) {
         if (scores[key] > max) {
             max = scores[key];
             best = key;
+            ties = [key];
+        } else if (scores[key] === max) {
+            ties.push(key);
         }
     }
-
-    // If there's a tie, use fallback logic
-    const tiedKeys = Object.keys(scores).filter(key => scores[key] === max);
-    if (tiedKeys.length > 1) {
-        // If tie, prefer the first one in the order (or implement your own tie-breaking logic)
-        best = tiedKeys[0];
+    
+    // Handle ties
+    if (ties.length > 1) {
+        best = ties[0]; // Simple tie-breaker
     }
-
-    // Hide quiz, show result
-    quizForm.style.display = "none";
-    quizProgress.style.display = "none";
+    
+    // Show Results
+    quizForm.classList.add("hidden");
     resultSection.style.display = "block";
-
-    // Display result on screen
-    resultDisplay.innerText = "Recommended Career Path: " + careerMap[best];
-
-    // Populate result details for printing
-    document.getElementById("print-career").innerText = careerMap[best];
-    document.getElementById("career-description").innerText = careerDescription[best];
-
-    // Populate skills list
+    
+    // Display Results
+    resultDisplay.textContent = `Recommended Career Path: ${careerMap[best]}`;
+    document.getElementById("print-career").textContent = careerMap[best];
+    document.getElementById("career-description").textContent = careerDescription[best];
+    
+    // Display Skills
     const skillList = document.getElementById("skill-list");
     skillList.innerHTML = "";
     careerSkills[best].forEach(skill => {
         const li = document.createElement("li");
-        li.innerText = skill;
+        li.textContent = skill;
         skillList.appendChild(li);
     });
+    
+    // Scroll to top of results
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Initialize the quiz
-showQuestion(0);
+// Feedback Function
+function submitFeedback() {
+    const feedbackText = document.getElementById("feedbackText").value;
+    if (feedbackText.trim() === "") {
+        alert("Please enter your feedback before submitting.");
+        return;
+    }
+    
+    alert("Thank you for your feedback!");
+    document.getElementById("feedbackText").value = "";
+}
+
+// Initialize Quiz
+document.addEventListener('DOMContentLoaded', function() {
+    showQuestion(0);
+    
+    // Keyboard Navigation
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+            nextQuestion();
+        } else if (e.key === 'ArrowLeft') {
+            prevQuestion();
+        }
+    });
+});
