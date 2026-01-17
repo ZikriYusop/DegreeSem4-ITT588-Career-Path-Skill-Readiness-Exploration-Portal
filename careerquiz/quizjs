@@ -1,1 +1,116 @@
+const questions = document.querySelectorAll(".question");
+const progressBar = document.getElementById("progressBar");
+const nextBtn = document.getElementById("nextBtn");
+const quizForm = document.getElementById("quizForm");
+const resultSection = document.getElementById("result-section");
+const resultDisplay = document.getElementById("result-display");
+const quizProgress = document.getElementById("quiz-progress");
 
+let current = 0;
+const scores = {
+    tech: 0,
+    people: 0,
+    creative: 0,
+    business: 0
+};
+
+// Career data
+const careerMap = {
+    tech: "Technology / IT",
+    people: "Education / Healthcare / HR",
+    creative: "Creative Industry",
+    business: "Business / Management"
+};
+
+const careerDescription = {
+    tech: "Careers focused on problem-solving, technology, and analytical thinking. You excel in environments that require logical thinking and technical expertise.",
+    people: "Careers involving communication, helping others, and teamwork. You thrive in roles where you can support and collaborate with people.",
+    creative: "Careers that emphasize creativity, design, and innovation. You shine in fields that allow artistic expression and original thinking.",
+    business: "Careers related to management, leadership, and organization. You are suited for roles that require strategic planning and decision-making."
+};
+
+const careerSkills = {
+    tech: ["Problem-solving", "Logical thinking", "Technical skills", "Analytical abilities", "Attention to detail"],
+    people: ["Communication", "Empathy", "Teamwork", "Patience", "Interpersonal skills"],
+    creative: ["Creativity", "Design thinking", "Innovation", "Visual thinking", "Adaptability"],
+    business: ["Leadership", "Planning", "Decision-making", "Strategic thinking", "Organization"]
+};
+
+// Event listener for radio button changes
+document.addEventListener("change", (e) => {
+    if (e.target.type === "radio") {
+        nextBtn.disabled = false;
+    }
+});
+
+function showQuestion(index) {
+    questions.forEach(q => q.classList.remove("active"));
+    questions[index].classList.add("active");
+    progressBar.style.width = ((index + 1) / questions.length) * 100 + "%";
+    const isChecked = questions[index].querySelector('input[type="radio"]:checked');
+    nextBtn.disabled = !isChecked;
+}
+
+function nextQuestion() {
+    if (current < questions.length - 1) {
+        current++;
+        showQuestion(current);
+    } else {
+        calculateResult();
+    }
+}
+
+function prevQuestion() {
+    if (current > 0) {
+        current--;
+        showQuestion(current);
+    }
+}
+
+function calculateResult() {
+    const checkedAnswers = document.querySelectorAll("input[type=radio]:checked");
+    Object.keys(scores).forEach(key => scores[key] = 0);
+    checkedAnswers.forEach(ans => {
+        scores[ans.value]++;
+    });
+
+    let best = "";
+    let max = 0;
+    for (let key in scores) {
+        if (scores[key] > max) {
+            max = scores[key];
+            best = key;
+        }
+    }
+
+    // If there's a tie, use fallback logic
+    const tiedKeys = Object.keys(scores).filter(key => scores[key] === max);
+    if (tiedKeys.length > 1) {
+        // If tie, prefer the first one in the order (or implement your own tie-breaking logic)
+        best = tiedKeys[0];
+    }
+
+    // Hide quiz, show result
+    quizForm.style.display = "none";
+    quizProgress.style.display = "none";
+    resultSection.style.display = "block";
+
+    // Display result on screen
+    resultDisplay.innerText = "Recommended Career Path: " + careerMap[best];
+
+    // Populate result details for printing
+    document.getElementById("print-career").innerText = careerMap[best];
+    document.getElementById("career-description").innerText = careerDescription[best];
+
+    // Populate skills list
+    const skillList = document.getElementById("skill-list");
+    skillList.innerHTML = "";
+    careerSkills[best].forEach(skill => {
+        const li = document.createElement("li");
+        li.innerText = skill;
+        skillList.appendChild(li);
+    });
+}
+
+// Initialize the quiz
+showQuestion(0);
