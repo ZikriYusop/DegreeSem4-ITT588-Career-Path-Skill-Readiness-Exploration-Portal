@@ -1,73 +1,51 @@
-/* Print Rules - Optimized to fit 1 page */
+/* Placeholder styling */
+input::placeholder {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* Star Rating Colors */
+.star-inactive { color: #dee2e6 !important; transition: color 0.2s; }
+.star-active { color: #ffc107 !important; transition: color 0.2s; }
+
+/* Fixed CSS Syntax from your screenshots */
+.form-control:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5); /* Fixed 'ring' error */
+}
+
+/* Strict 1-Page Print Styling */
 @media print {
     .no-print { display: none !important; }
     
     @page {
         size: A4;
-        margin: 5mm; /* Reduced margin to maximize space */
+        margin: 0; /* Remove margins to prevent 2nd page overflow */
     }
     
     body {
         background: white !important;
-        /* Fixed: Added standard property alongside webkit */
         -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        print-color-adjust: exact; /* Fixed cross-browser error */
     }
 
     .print-container {
         width: 100% !important;
         max-width: 100% !important;
-        padding: 0 !important;
         margin: 0 !important;
+        padding: 10mm !important;
     }
 
     .print-card {
         border: none !important;
         box-shadow: none !important;
-        /* Slight scale down to ensure 1-page fit */
-        transform: scale(0.98);
+        /* Forced scale to ensure everything fits on 1 page */
+        transform: scale(0.95);
         transform-origin: top center;
     }
-
-    /* Force the grid to maintain layout on print */
-    .grid-cols-print {
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr) !important;
-        gap: 12px !important;
-    }
 }
 
-[x-cloak] { display: none !important; }
-
-/* Fixed CSS Syntax */
-.card { background: white; padding: 2rem; border-radius: 1rem; border: 1px solid #f1f5f9; }
-
-.input-field { 
-    width: 100%; 
-    padding: 0.75rem; 
-    border: 1px solid #e2e8f0; 
-    border-radius: 0.5rem; 
-    outline: none; 
-}
-
-.input-field:focus { 
-    border-color: #6366f1; 
-    /* Fixed: Changed 'ring' to standard box-shadow */
-    box-shadow: 0 0 0 2px #6366f1; 
-}
-
-.btn-primary { background: #4f46e5; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; }
-.btn-secondary { border: 1px solid #cbd5e1; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; }
-.btn-dark { background: #1e293b; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
-.btn-danger { color: #ef4444; font-weight: 700; padding: 0.75rem; }
-
-.star-active { color: #facc15; }
-.star-inactive { color: #e2e8f0; }
-
-.score-badge { 
-    text-align: center; 
-    padding: 1rem; 
-    background: #eef2ff; 
-    border-radius: 1rem; 
-    border: 1px solid #e0e7ff; 
-}
+/* Pill indicators for Summary Page */
+.star-pill { height: 8px; width: 25px; border-radius: 4px; }
+.bg-light-dark { background-color: #e9ecef; }
+.fw-black { font-weight: 900; }
