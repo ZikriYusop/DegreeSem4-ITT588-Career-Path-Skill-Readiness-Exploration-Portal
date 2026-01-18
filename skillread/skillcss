@@ -1,48 +1,73 @@
-/* Custom styles for Career Readiness Assessment */
+/* Print Rules - Optimized to fit 1 page */
+@media print {
+    .no-print { display: none !important; }
+    
+    @page {
+        size: A4;
+        margin: 5mm; /* Reduced margin to maximize space */
+    }
+    
+    body {
+        background: white !important;
+        /* Fixed: Added standard property alongside webkit */
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
 
-/* Hides the URL/File Location and Header/Footer when printing */
-@media print { 
-    .no-print { 
-        display: none !important; 
-    } 
-    
-    @page { 
-        margin: 1cm; 
+    .print-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
-    
-    body { 
-        margin: 0; 
-        background-color: white !important;
-    }
-    
-    #report-view {
+
+    .print-card {
+        border: none !important;
         box-shadow: none !important;
-        border: 1px solid #ddd !important;
-        padding: 0.5cm !important;
+        /* Slight scale down to ensure 1-page fit */
+        transform: scale(0.98);
+        transform-origin: top center;
+    }
+
+    /* Force the grid to maintain layout on print */
+    .grid-cols-print {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 12px !important;
     }
 }
 
-/* Star rating styles */
-.star-input:checked ~ label { 
-    color: #fbbf24; 
+[x-cloak] { display: none !important; }
+
+/* Fixed CSS Syntax */
+.card { background: white; padding: 2rem; border-radius: 1rem; border: 1px solid #f1f5f9; }
+
+.input-field { 
+    width: 100%; 
+    padding: 0.75rem; 
+    border: 1px solid #e2e8f0; 
+    border-radius: 0.5rem; 
+    outline: none; 
 }
 
-.star-input:hover ~ label { 
-    color: #f59e0b; 
+.input-field:focus { 
+    border-color: #6366f1; 
+    /* Fixed: Changed 'ring' to standard box-shadow */
+    box-shadow: 0 0 0 2px #6366f1; 
 }
 
-/* Animation for progress bar */
-.progress-transition {
-    transition: width 0.5s ease-in-out;
-}
+.btn-primary { background: #4f46e5; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; }
+.btn-secondary { border: 1px solid #cbd5e1; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; }
+.btn-dark { background: #1e293b; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
+.btn-danger { color: #ef4444; font-weight: 700; padding: 0.75rem; }
 
-/* Additional responsive adjustments */
-@media (max-width: 640px) {
-    .skill-section {
-        padding: 1rem !important;
-    }
-    
-    #report-view {
-        padding: 1.5rem !important;
-    }
+.star-active { color: #facc15; }
+.star-inactive { color: #e2e8f0; }
+
+.score-badge { 
+    text-align: center; 
+    padding: 1rem; 
+    background: #eef2ff; 
+    border-radius: 1rem; 
+    border: 1px solid #e0e7ff; 
 }
