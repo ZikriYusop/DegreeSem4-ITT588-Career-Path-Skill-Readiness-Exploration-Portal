@@ -1,4 +1,5 @@
 /* General Layout */
+/* vh = viewpoint */
 body {
     transition: background-color 0.3s, color 0.3s;
     min-height: 100vh;
@@ -10,7 +11,19 @@ body {
 .navbar-glass {
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0,0,0,0.1);
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(206, 158, 235, 0.85);
+}
+
+.logouitm {
+  height: 40px;       /* control logo size */
+  width: auto;        /* keep proportions */
+}
+
+/* 576px bs features untuk device screen kecik: */
+@media (max-width: 576px) {
+  .logo {
+    height: 30px;
+  }
 }
 
 /* Hero Section Styling */
@@ -30,6 +43,15 @@ body {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
 }
+
+.custom-footer {
+    background-color: rgb(142, 163, 228);
+}
+
+.footer-text {
+    color: rgba(0, 0, 0, 1);
+}
+
 
 /* DARK MODE OVERRIDES */
 /* att bs nak tukar theme jadi dark mode */
@@ -54,4 +76,13 @@ body {
 
 [data-bs-theme="dark"] .text-muted {
     color: #a0a0a0 !important;
+}
+
+[data-bs-theme="dark"] .custom-footer {
+    background-color: #1a1a1a; /* Dark Grey background */
+    border-top: 1px solid #333; /* Subtle border line */
+}
+
+[data-bs-theme="dark"] .footer-text {
+    color: #e0e0e0; /* Light text so it's readable */
 }
