@@ -2,125 +2,114 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills Readiness Assessment</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Skills Readiness</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="skill.css">
 </head>
-<body class="bg-slate-50 min-h-screen font-sans text-slate-900" x-data="skillsApp()">
+<body class="bg-light py-5" x-data="skillsApp()">
 
-    <div class="max-w-4xl mx-auto py-12 px-4 print-container">
+    <div class="container print-container" style="max-width: 900px;">
         
-        <header class="text-center mb-10 no-print">
-            <h1 class="text-4xl font-extrabold text-indigo-700">Skills Readiness</h1>
-            <p class="text-slate-500 mt-2">Evaluate your professional competency levels</p>
-        </header>
-
-        <section x-show="step === 1" x-cloak class="card shadow-xl">
-            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
-                <i data-lucide="user-circle" class="text-indigo-500"></i> Personal Information
-            </h2>
-            <div class="space-y-4">
-                <div>
-                    <label class="block text-sm font-medium mb-1">Full Name</label>
-                    <input type="text" x-model="user.name" class="input-field" placeholder="Ali Abu">
+        <section x-show="step === 1" x-cloak class="card shadow-sm p-4 border-0">
+            <h2 class="h4 fw-bold mb-4">Personal Information</h2>
+            <div class="row g-3">
+                <div class="col-12">
+                    <label class="small fw-bold">Full Name</label>
+                    <input type="text" x-model="user.name" class="form-control" placeholder="Full Name">
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium mb-1">Phone Number</label>
-                        <input type="tel" x-model="user.phone" class="input-field" placeholder="0123456789">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-1">Email Address</label>
-                        <input type="email" x-model="user.email" class="input-field" placeholder="john@example.com">
-                    </div>
+                <div class="col-md-6">
+                    <label class="small fw-bold">Phone Number</label>
+                    <input type="tel" x-model="user.phone" class="form-control" placeholder="0123456789">
                 </div>
-                <button @click="nextStep" :disabled="!user.name || !user.email" class="btn-primary w-full mt-6">
-                    Continue to Skills Evaluation
-                </button>
+                <div class="col-md-6">
+                    <label class="small fw-bold">Email Address</label>
+                    <input type="email" x-model="user.email" class="form-control" placeholder="name@example.com">
+                </div>
+                <button @click="nextStep" class="btn btn-primary mt-4 py-2 fw-bold">Continue to Evaluation</button>
             </div>
         </section>
 
-        <section x-show="step === 2" x-cloak class="card shadow-xl">
-            <h2 class="text-2xl font-bold mb-8">Skills Evaluation</h2>
-            <div class="space-y-10">
-                <template x-for="(skills, category) in skillGroups" :key="category">
-                    <div>
-                        <h3 class="text-lg font-bold text-slate-700 border-b pb-2 mb-4 capitalize" x-text="category + ' Skills'"></h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <template x-for="skill in skills" :key="skill">
-                                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
-                                    <div class="flex justify-between items-center mb-2">
-                                        <span class="font-medium text-slate-700" x-text="skill"></span>
-                                        <span class="text-xs font-bold text-indigo-500" x-text="(ratings[skill] * 20) + '%'"></span>
+        <section x-show="step === 2" x-cloak class="card shadow-sm p-4 border-0">
+            <template x-for="(skills, category) in skillGroups" :key="category">
+                <div class="mb-5">
+                    <h3 class="h6 fw-bold text-secondary text-uppercase mb-3" x-text="category === 'soft' ? 'Soft Skills' : category + ' Skills'"></h3>
+                    <div class="row g-3">
+                        <template x-for="skill in skills" :key="skill">
+                            <div class="col-md-6">
+                                <div class="p-3 border rounded bg-white">
+                                    <div class="d-flex justify-content-between small fw-bold mb-2">
+                                        <span x-text="skill"></span>
+                                        <span class="text-primary" x-text="(ratings[skill] * 20) + '%'"></span>
                                     </div>
-                                    <div class="flex gap-1">
+                                    <div class="d-flex gap-1">
                                         <template x-for="i in 5">
-                                            <button @click="ratings[skill] = i" class="star-btn">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" :class="i <= ratings[skill] ? 'star-active' : 'star-inactive'" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                            <button @click="ratings[skill] = i" class="btn p-0 border-0 shadow-none">
+                                                <svg xmlns="http://www.w3.org/2000/svg" :class="i <= ratings[skill] ? 'star-active' : 'star-inactive'" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                                             </button>
                                         </template>
                                     </div>
                                 </div>
-                            </template>
-                        </div>
+                            </div>
+                        </template>
                     </div>
-                </template>
-            </div>
-            <div class="mt-10 flex gap-4">
-                <button @click="step = 1" class="btn-secondary flex-1">Back</button>
-                <button @click="step = 3" class="btn-primary flex-1">View Result</button>
-            </div>
+                </div>
+            </template>
+            <button @click="step = 3; setTimeout(() => lucide.createIcons(), 50)" class="btn btn-primary w-100 fw-bold">View Summary</button>
         </section>
 
-        <section x-show="step === 3" x-cloak class="space-y-6">
-            <div class="card shadow-xl print-card">
-                <div class="flex flex-col md:flex-row justify-between border-b pb-6 mb-6">
-                    <div>
-                        <h2 class="text-3xl font-black text-slate-800" x-text="user.name"></h2>
-                        <p class="text-slate-500 mt-1" x-text="user.email + ' • ' + user.phone"></p>
+        <section x-show="step === 3" x-cloak>
+            <div class="print-card card shadow-sm p-4 border-0">
+                <div class="row align-items-center border-bottom pb-4 mb-5"> 
+                    <div class="col-8">
+                        <h2 class="display-6 fw-black mb-1" x-text="user.name"></h2>
+                        <p class="text-muted mb-0" x-text="user.email + ' | ' + user.phone"></p>
                     </div>
-                    <div class="mt-4 md:mt-0">
-                        <div class="score-badge">
-                            <p class="text-xs font-bold text-indigo-500 uppercase">Soft Skills Total</p>
-                            <p class="text-4xl font-black text-indigo-700" x-text="calculateCategoryTotal('soft') + '%'"></p>
+                    <div class="col-4 text-end">
+                        <div class="p-3 bg-light border rounded-4 text-center">
+                            <small class="text-uppercase fw-bold text-primary d-block mb-1">Soft Skills Total</small>
+                            <span class="h1 fw-black text-primary mb-0" x-text="calculateCategoryTotal('soft') + '%'"></span>
                         </div>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="row g-3">
                     <template x-for="(skills, category) in skillGroups" :key="category">
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                            <h3 class="text-xs font-black text-slate-400 uppercase mb-3" x-text="category + ' Skills'"></h3>
-                            <div class="space-y-3">
-                                <template x-for="skill in skills" :key="skill">
-                                    <div>
-                                        <div class="flex justify-between text-xs mb-1">
-                                            <span class="font-medium" x-text="skill"></span>
-                                            <span x-text="(ratings[skill] * 20) + '%'"></span>
+                        <div class="col-4">
+                            <div class="p-3 bg-light border rounded-3 h-100">
+                                <h4 class="small fw-black text-muted text-uppercase mb-3" x-text="category === 'soft' ? 'Soft Skills' : category"></h4>
+                                <div class="vstack gap-3">
+                                    <template x-for="skill in skills" :key="skill">
+                                        <div>
+                                            <div class="d-flex justify-content-between xsmall mb-1">
+                                                <span x-text="skill"></span>
+                                                <span class="fw-bold" x-text="(ratings[skill] * 20) + '%'"></span>
+                                            </div>
+                                            <div class="d-flex gap-1">
+                                                <template x-for="i in 5">
+                                                    <div class="star-pill" :class="i <= ratings[skill] ? 'bg-warning' : 'bg-light-dark'"></div>
+                                                </template>
+                                            </div>
                                         </div>
-                                        <div class="flex gap-0.5">
-                                            <template x-for="i in 5">
-                                                <div class="w-3.5 h-3.5 rounded-sm" :class="i <= ratings[skill] ? 'bg-yellow-400' : 'bg-slate-200'"></div>
-                                            </template>
-                                        </div>
-                                    </div>
-                                </template>
+                                    </template>
+                                </div>
                             </div>
                         </div>
                     </template>
                 </div>
 
-                <div class="mt-8 flex flex-wrap gap-4 no-print">
-                    <button @click="printPage" class="btn-dark"><i data-lucide="printer" class="w-5 h-5"></i> Print</button>
-                    <button @click="step = 2" class="btn-secondary">Edit</button>
-                    <button @click="resetApp" class="btn-danger ml-auto">Reset</button>
+                <div class="mt-5 d-flex gap-2 no-print">
+                    <button @click="window.print()" class="btn btn-dark fw-bold d-flex align-items-center gap-2 px-4">
+                        <i data-lucide="printer" style="width:18px"></i> Print
+                    </button>
+                    <button @click="step = 2" class="btn btn-outline-dark fw-bold px-4">Edit</button>
+                    <button @click="window.location.reload()" class="btn btn-link text-danger ms-auto fw-bold text-decoration-none">Reset</button>
                 </div>
             </div>
         </section>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
