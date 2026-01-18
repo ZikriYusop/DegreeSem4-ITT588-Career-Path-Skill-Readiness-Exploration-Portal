@@ -1,1 +1,48 @@
+/* Custom styles for Career Readiness Assessment */
 
+/* Hides the URL/File Location and Header/Footer when printing */
+@media print { 
+    .no-print { 
+        display: none !important; 
+    } 
+    
+    @page { 
+        margin: 1cm; 
+    }
+    
+    body { 
+        margin: 0; 
+        background-color: white !important;
+    }
+    
+    #report-view {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+        padding: 0.5cm !important;
+    }
+}
+
+/* Star rating styles */
+.star-input:checked ~ label { 
+    color: #fbbf24; 
+}
+
+.star-input:hover ~ label { 
+    color: #f59e0b; 
+}
+
+/* Animation for progress bar */
+.progress-transition {
+    transition: width 0.5s ease-in-out;
+}
+
+/* Additional responsive adjustments */
+@media (max-width: 640px) {
+    .skill-section {
+        padding: 1rem !important;
+    }
+    
+    #report-view {
+        padding: 1.5rem !important;
+    }
+}
