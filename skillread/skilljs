@@ -18,24 +18,15 @@ function skillsApp() {
             setTimeout(() => lucide.createIcons(), 50);
         },
 
-        // Calculates percentage for a specific category (e.g., 'soft')
         calculateCategoryTotal(category) {
             const skills = this.skillGroups[category];
-            const sum = skills.reduce((acc, skill) => acc + this.ratings[skill], 0);
+            const sum = skills.reduce((acc, skill) => acc + (this.ratings[skill] || 0), 0);
             const totalPossible = skills.length * 5;
             return Math.round((sum / totalPossible) * 100) || 0;
         },
 
-        printPage() {
-            window.print();
-        },
-
-        resetApp() {
-            if(confirm('Clear all data?')) window.location.reload();
-        },
-
-        init() {
-            lucide.createIcons();
-        }
+        printPage() { window.print(); },
+        resetApp() { if(confirm('Are you sure you want to reset?')) window.location.reload(); },
+        init() { lucide.createIcons(); }
     }
 }
