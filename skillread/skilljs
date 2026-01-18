@@ -1,1 +1,41 @@
+function skillsApp() {
+    return {
+        step: 1,
+        user: { name: '', phone: '', email: '' },
+        skillGroups: {
+            soft: ['Problem Solving', 'Adaptability', 'Time Management', 'Critical Thinking'],
+            interpersonal: ['Communication', 'Teamwork', 'Conflict Resolution', 'Empathy'],
+            leadership: ['Strategic Thinking', 'Delegation', 'Mentoring', 'Decision Making']
+        },
+        ratings: {
+            'Problem Solving': 0, 'Adaptability': 0, 'Time Management': 0, 'Critical Thinking': 0,
+            'Communication': 0, 'Teamwork': 0, 'Conflict Resolution': 0, 'Empathy': 0,
+            'Strategic Thinking': 0, 'Delegation': 0, 'Mentoring': 0, 'Decision Making': 0
+        },
+        
+        nextStep() {
+            this.step++;
+            setTimeout(() => lucide.createIcons(), 50);
+        },
 
+        // Calculates percentage for a specific category (e.g., 'soft')
+        calculateCategoryTotal(category) {
+            const skills = this.skillGroups[category];
+            const sum = skills.reduce((acc, skill) => acc + this.ratings[skill], 0);
+            const totalPossible = skills.length * 5;
+            return Math.round((sum / totalPossible) * 100) || 0;
+        },
+
+        printPage() {
+            window.print();
+        },
+
+        resetApp() {
+            if(confirm('Clear all data?')) window.location.reload();
+        },
+
+        init() {
+            lucide.createIcons();
+        }
+    }
+}
