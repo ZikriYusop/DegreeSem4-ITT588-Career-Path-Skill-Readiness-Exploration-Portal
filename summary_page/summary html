@@ -2,174 +2,179 @@
 <html lang="en" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
-    <title>Career Summary & About Portal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Career Path & Skill Readiness Portal</title>
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+        rel="stylesheet"
+    >
 
     <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" 
+        rel="stylesheet"
+    >
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="summary.css">
-
-    <!-- Theme JS -->
-    <script src="theme.js" defer></script>
 </head>
 
 <body>
 
-<!-- ================= NAVIGATION ================= -->
-<nav class="navbar navbar-glass px-4 d-flex align-items-center no-print">
-    <span class="navbar-brand fw-bold">
-        Career Guidance Portal
-    </span>
+<!-- NAVIGATION BAR -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-glass">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+            Career Portal
+        </a>
 
-    <ul class="nav ms-4">
-        <li class="nav-item"><a class="nav-link" href="#summary">Summary</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-    </ul>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <button id="themeToggle" class="btn btn-outline-dark ms-auto">
-        <i id="themeIcon" class="bi bi-moon-stars-fill"></i>
-    </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">About</a>
+                </li>
+
+                <!-- Dark Mode Toggle -->
+                <li class="nav-item ms-3">
+                    <button class="btn btn-outline-secondary" id="themeToggle">
+                        <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
 
-<!-- ================= HERO ================= -->
-<section class="hero-section text-center">
+<!-- HERO SECTION -->
+<header class="hero-section text-center">
     <div class="container">
-        <h1 class="hero-title">Career Readiness Summary</h1>
-        <p class="hero-subtitle">
-            Structured career recommendation & skill readiness report
+        <h1 class="fw-bold">About This Project</h1>
+        <p class="text-muted mt-3">
+            Career Path & Skill Readiness Exploration Portal
         </p>
     </div>
-</section>
+</header>
 
-<!-- ================= SECTION A: SUMMARY REPORT ================= -->
-<main class="container my-5" id="summary">
+<!-- ABOUT CONTENT -->
+<main class="container my-5">
 
-    <h2 class="section-title">Section A — Summary Report</h2>
-
-    <!-- Student Info -->
-    <div class="card card-custom p-4 mb-4">
-        <h4 class="fw-bold mb-3">Student Information</h4>
-        <p><strong>Name:</strong> Student Name</p>
-        <p><strong>Programme:</strong> Bachelor of Information Technology</p>
-    </div>
-
-    <!-- Overall Result -->
-    <div class="card card-custom p-4 mb-4 text-center">
-        <h4 class="fw-bold">Overall Career Readiness</h4>
-        <div class="summary-score">82%</div>
-        <p class="text-muted">Career Ready — Strong Skill Foundation</p>
-    </div>
-
-    <!-- Skill Breakdown -->
-    <div class="card card-custom p-4 mb-4">
-        <h4 class="fw-bold mb-3">Skill Readiness Breakdown</h4>
-
-        <div class="skill-item">
-            <span>Communication</span>
-            <span class="skill-stars">★★★★☆</span>
-        </div>
-
-        <div class="skill-item">
-            <span>Problem Solving</span>
-            <span class="skill-stars">★★★★★</span>
-        </div>
-
-        <div class="skill-item">
-            <span>Teamwork</span>
-            <span class="skill-stars">★★★★☆</span>
-        </div>
-
-        <div class="skill-item">
-            <span>Leadership</span>
-            <span class="skill-stars">★★★☆☆</span>
-        </div>
-    </div>
-
-    <!-- Print Button -->
-    <div class="text-center no-print">
-        <button onclick="window.print()" class="btn btn-primary px-5 py-2">
-            Print / Save as PDF
-        </button>
-    </div>
-
-</main>
-
-<!-- ================= SECTION B: ABOUT PORTAL ================= -->
-<section class="container my-5" id="about">
-
-    <h2 class="section-title">Section B — About Portal</h2>
-
-    <!-- About Description -->
+    <!-- Project Overview -->
     <div class="card card-custom p-4 mb-4">
         <h4 class="fw-bold mb-3">Project Overview</h4>
         <p>
-            This Career Guidance Portal is developed to assist students in evaluating
-            their career readiness through structured skill assessment and feedback.
-            The system promotes self-awareness and informed career planning.
+            This project is a front-end web application developed to assist students in
+            exploring potential career paths and evaluating their skill readiness based
+            on personal interests, strengths, and self-identified skills.
         </p>
 
         <p>
-            <strong>Project Objectives:</strong>
-            <ul>
-                <li>Assess student career readiness</li>
-                <li>Provide structured skill feedback</li>
-                <li>Support career planning decisions</li>
-            </ul>
+            The system processes user input using JavaScript logic and provides structured
+            career recommendations and readiness feedback without relying on backend
+            processing or databases.
         </p>
 
-        <p>
-            <strong>Tools Used:</strong> HTML, CSS, JavaScript, Bootstrap 5
-        </p>
+    </div>
 
+    <!-- Project Objectives -->
+    <div class="card card-custom p-4 mb-4">
+        <h4 class="fw-bold mb-3">Project Objectives</h4>
+        <ul>
+            <li>To assist students in exploring suitable career paths</li>
+            <li>To assess skill readiness through structured self-evaluation</li>
+            <li>To apply usability and interface design principles</li>
+            <li>To present career-related information clearly and accessibly</li>
+        </ul>
+
+    </div>
+
+    <!-- Learning Outcomes -->
+    <div class="card card-custom p-4 mb-4">
+        <h4 class="fw-bold mb-3">Learning Outcomes</h4>
+        <ul>
+            <li>Develop an interactive front-end application</li>
+            <li>Apply Shneiderman’s 8 Golden Rules in interface design</li>
+            <li>Use JavaScript to process user input and logic</li>
+            <li>Present information clearly and accessibly</li>
+        </ul>
+    </div>
+
+    <!-- Technologies Used -->
+    <div class="card card-custom p-4 mb-4">
+        <h4 class="fw-bold mb-3">Technologies Used</h4>
+        <ul>
+            <li>HTML5 – Structure of the web pages</li>
+            <li>CSS3 – Styling, layout, and responsiveness</li>
+            <li>JavaScript – User interaction and logic processing</li>
+            <li>Bootstrap 5 – Responsive layout and UI components</li>
+        </ul>
+
+    </div>
+
+    <!-- Design Justification -->
+    <div class="card card-custom p-4 mb-4">
+        <h4 class="fw-bold mb-3">Design Justification</h4>
         <p>
-            <strong>Design Justification:</strong>
-            Clean layout, consistent styling, responsive design, and print-friendly
-            format to ensure usability and accessibility.
+            The portal interface follows Shneiderman’s 8 Golden Rules by maintaining
+            consistency in layout, providing clear feedback through interactive
+            elements, supporting user control, and ensuring a clean, readable design.
+        </p>
+        <p>
+            Responsive layouts and accessible colour themes enhance usability across
+            devices and screen sizes.
         </p>
     </div>
 
     <!-- Group Members -->
-    <h4 class="fw-bold text-center mb-4">Group Members</h4>
+    <div class="card card-custom p-4">
+        <h4 class="fw-bold mb-4 text-center">Group Members</h4>
 
-    <div class="row text-center">
-        <div class="col-6 col-md-3 member-card">
-            <img src="https://via.placeholder.com/150" class="member-photo" alt="Member 1">
-            <p class="member-name">Member 1</p>
-            <p class="member-role">System Design</p>
-        </div>
+        <div class="row text-center">
+            <div class="col-md-3 mb-4">
+                <img src="member1.jpg" class="rounded-circle mb-2" width="120" height="120" alt="Member 1">
+                <p class="fw-bold mb-0">Member 1</p>
+                <small class="text-muted">Developer</small>
+            </div>
 
-        <div class="col-6 col-md-3 member-card">
-            <img src="https://via.placeholder.com/150" class="member-photo" alt="Member 2">
-            <p class="member-name">Member 2</p>
-            <p class="member-role">Frontend</p>
-        </div>
+            <div class="col-md-3 mb-4">
+                <img src="member2.jpg" class="rounded-circle mb-2" width="120" height="120" alt="Member 2">
+                <p class="fw-bold mb-0">Member 2</p>
+                <small class="text-muted">UI Designer</small>
+            </div>
 
-        <div class="col-6 col-md-3 member-card">
-            <img src="https://via.placeholder.com/150" class="member-photo" alt="Member 3">
-            <p class="member-name">Member 3</p>
-            <p class="member-role">Backend Logic</p>
-        </div>
+            <div class="col-md-3 mb-4">
+                <img src="member3.jpg" class="rounded-circle mb-2" width="120" height="120" alt="Member 3">
+                <p class="fw-bold mb-0">Member 3</p>
+                <small class="text-muted">Logic & Testing</small>
+            </div>
 
-        <div class="col-6 col-md-3 member-card">
-            <img src="https://via.placeholder.com/150" class="member-photo" alt="Member 4">
-            <p class="member-name">Member 4</p>
-            <p class="member-role">Summary & Documentation</p>
+            <div class="col-md-3 mb-4">
+                <img src="member4.jpg" class="rounded-circle mb-2" width="120" height="120" alt="Member 4">
+                <p class="fw-bold mb-0">Member 4</p>
+                <small class="text-muted">Documentation</small>
+            </div>
         </div>
     </div>
 
-</section>
+</main>
 
-<!-- ================= FOOTER ================= -->
-<footer class="custom-footer text-center">
+<!-- FOOTER -->
+<footer class="custom-footer py-3 mt-auto text-center">
     <p class="footer-text mb-0">
-        © 2026 Career Guidance Portal | UiTM
+        © 2026 Career Path & Skill Readiness Exploration Portal
     </p>
 </footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS -->
+<script src="theme.js"></script>
 
 </body>
 </html>
