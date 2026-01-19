@@ -1,0 +1,124 @@
+/* ===== GENERAL ===== */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== NAVBAR ===== */
+.navbar-glass {
+    backdrop-filter: blur(10px);
+    background-color: rgba(206, 158, 235, 0.85);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.nav-link {
+    font-weight: 500;
+}
+
+/* ===== HERO ===== */
+.hero-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* ===== SECTION TITLE ===== */
+.section-title {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* ===== CARDS ===== */
+.card-custom {
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-custom:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* ===== SUMMARY ===== */
+.summary-score {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #4f46e5;
+}
+
+/* ===== SKILLS ===== */
+.skill-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed #ccc;
+    padding: 6px 0;
+}
+
+.skill-stars {
+    color: #fbbf24;
+    font-weight: bold;
+}
+
+/* ===== MEMBERS ===== */
+.member-photo {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #c7d2fe;
+}
+
+.member-name {
+    font-weight: bold;
+}
+
+.member-role {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* ===== FOOTER ===== */
+.custom-footer {
+    background-color: rgb(142, 163, 228);
+    padding: 15px;
+    margin-top: auto;
+}
+
+/* ===== PRINT ===== */
+@media print {
+    .no-print {
+        display: none;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .card-custom {
+        box-shadow: none;
+    }
+}
+
+/* ===== DARK MODE ===== */
+[data-bs-theme="dark"] .hero-section {
+    background: linear-gradient(135deg, #1f2833, #0b0c10);
+}
+
+[data-bs-theme="dark"] .card-custom {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+[data-bs-theme="dark"] .custom-footer {
+    background-color: #1a1a1a;
+}
+
+[data-bs-theme="dark"] .footer-text {
+    color: #e0e0e0;
+}
