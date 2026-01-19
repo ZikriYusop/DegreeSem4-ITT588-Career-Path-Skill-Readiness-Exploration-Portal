@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <title>Career Summary & About Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="summary.css">
+
+    <!-- Theme JS -->
+    <script src="theme.js" defer></script>
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+<nav class="navbar navbar-glass px-4 d-flex align-items-center no-print">
+    <span class="navbar-brand fw-bold">
+        Career Guidance Portal
+    </span>
+
+    <ul class="nav ms-4">
+        <li class="nav-item"><a class="nav-link" href="#summary">Summary</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+    </ul>
+
+    <button id="themeToggle" class="btn btn-outline-dark ms-auto">
+        <i id="themeIcon" class="bi bi-moon-stars-fill"></i>
+    </button>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="hero-section text-center">
+    <div class="container">
+        <h1 class="hero-title">Career Readiness Summary</h1>
+        <p class="hero-subtitle">
+            Structured career recommendation & skill readiness report
+        </p>
+    </div>
+</section>
+
+<!-- ================= SECTION A: SUMMARY REPORT ================= -->
+<main class="container my-5" id="summary">
+
+    <h2 class="section-title">Section A — Summary Report</h2>
+
+    <!-- Student Info -->
+    <div class="card card-custom p-4 mb-4">
+        <h4 class="fw-bold mb-3">Student Information</h4>
+        <p><strong>Name:</strong> Student Name</p>
+        <p><strong>Programme:</strong> Bachelor of Information Technology</p>
+    </div>
+
+    <!-- Overall Result -->
+    <div class="card card-custom p-4 mb-4 text-center">
+        <h4 class="fw-bold">Overall Career Readiness</h4>
+        <div class="summary-score">82%</div>
+        <p class="text-muted">Career Ready — Strong Skill Foundation</p>
+    </div>
+
+    <!-- Skill Breakdown -->
+    <div class="card card-custom p-4 mb-4">
+        <h4 class="fw-bold mb-3">Skill Readiness Breakdown</h4>
+
+        <div class="skill-item">
+            <span>Communication</span>
+            <span class="skill-stars">★★★★☆</span>
+        </div>
+
+        <div class="skill-item">
+            <span>Problem Solving</span>
+            <span class="skill-stars">★★★★★</span>
+        </div>
+
+        <div class="skill-item">
+            <span>Teamwork</span>
+            <span class="skill-stars">★★★★☆</span>
+        </div>
+
+        <div class="skill-item">
+            <span>Leadership</span>
+            <span class="skill-stars">★★★☆☆</span>
+        </div>
+    </div>
+
+    <!-- Print Button -->
+    <div class="text-center no-print">
+        <button onclick="window.print()" class="btn btn-primary px-5 py-2">
+            Print / Save as PDF
+        </button>
+    </div>
+
+</main>
+
+<!-- ================= SECTION B: ABOUT PORTAL ================= -->
+<section class="container my-5" id="about">
+
+    <h2 class="section-title">Section B — About Portal</h2>
+
+    <!-- About Description -->
+    <div class="card card-custom p-4 mb-4">
+        <h4 class="fw-bold mb-3">Project Overview</h4>
+        <p>
+            This Career Guidance Portal is developed to assist students in evaluating
+            their career readiness through structured skill assessment and feedback.
+            The system promotes self-awareness and informed career planning.
+        </p>
+
+        <p>
+            <strong>Project Objectives:</strong>
+            <ul>
+                <li>Assess student career readiness</li>
+                <li>Provide structured skill feedback</li>
+                <li>Support career planning decisions</li>
+            </ul>
+        </p>
+
+        <p>
+            <strong>Tools Used:</strong> HTML, CSS, JavaScript, Bootstrap 5
+        </p>
+
+        <p>
+            <strong>Design Justification:</strong>
+            Clean layout, consistent styling, responsive design, and print-friendly
+            format to ensure usability and accessibility.
+        </p>
+    </div>
+
+    <!-- Group Members -->
+    <h4 class="fw-bold text-center mb-4">Group Members</h4>
+
+    <div class="row text-center">
+        <div class="col-6 col-md-3 member-card">
+            <img src="https://via.placeholder.com/150" class="member-photo" alt="Member 1">
+            <p class="member-name">Member 1</p>
+            <p class="member-role">System Design</p>
+        </div>
+
+        <div class="col-6 col-md-3 member-card">
+            <img src="https://via.placeholder.com/150" class="member-photo" alt="Member 2">
+            <p class="member-name">Member 2</p>
+            <p class="member-role">Frontend</p>
+        </div>
+
+        <div class="col-6 col-md-3 member-card">
+            <img src="https://via.placeholder.com/150" class="member-photo" alt="Member 3">
+            <p class="member-name">Member 3</p>
+            <p class="member-role">Backend Logic</p>
+        </div>
+
+        <div class="col-6 col-md-3 member-card">
+            <img src="https://via.placeholder.com/150" class="member-photo" alt="Member 4">
+            <p class="member-name">Member 4</p>
+            <p class="member-role">Summary & Documentation</p>
+        </div>
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="custom-footer text-center">
+    <p class="footer-text mb-0">
+        © 2026 Career Guidance Portal | UiTM
+    </p>
+</footer>
+
+</body>
+</html>
