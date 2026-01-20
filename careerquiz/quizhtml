@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UiTM Career Path Quiz</title>
+    <title>UiTM Career Path Quiz - 6 Questions</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="quizcss.css">
 </head>
 <body>
-
+    <!-- Navigation Bar (from Tutorial 2 - Generic Elements) -->
     <nav class="navbar navbar-expand-lg navbar-glass sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="home.html">
@@ -25,6 +25,7 @@
                     <li class="nav-item"><a class="nav-link" href="#">Results</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
                     
+                    <!-- Dark Mode Toggle -->
                     <li class="nav-item ms-3">
                         <button id="themeToggle" class="btn btn-outline-primary btn-sm rounded-pill">
                             <i class="bi bi-moon-stars-fill" id="themeIcon"></i> 
@@ -36,233 +37,244 @@
         </div>
     </nav>
 
-    <main class="hero-section-quiz py-5 d-flex align-items-center flex-grow-1">
+    <!-- Main Content (from Tutorial 2 - Sectioning Elements) -->
+    <main class="hero-section-quiz py-5 d-flex align-items-center flex-grow-1 main-wrapper">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     
+                    <!-- Quiz Card -->
                     <div class="card card-custom border-0 shadow-lg p-3 p-md-5">
                         <div class="card-body">
                             <h2 class="text-center mb-4 fw-bold text-primary">Career Path Quiz</h2>
+                            <p class="text-center text-muted mb-4">6 simple questions to discover your ideal career</p>
                             
+                            <!-- Progress Bar -->
                             <div class="progress mb-5" style="height: 10px;">
                                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" 
-                                     id="progressBar" style="width: 0%"></div>
+                                     id="progressBar" style="width: 17%"></div>
                             </div>
+                            <p class="text-center mb-4" id="progressText">Question 1 of 6</p>
 
+                            <!-- Quiz Form (6 Questions Only) -->
                             <form id="quizForm">
+                                <!-- Question 1 -->
                                 <div class="question active">
-                                    <h5 class="mb-4">1. What type of activities do you enjoy most?</h5>
+                                    <h5 class="mb-4">1. What type of work do you enjoy most?</h5>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
                                         <input class="form-check-input" type="radio" name="q1" value="tech" id="q1a">
-                                        <label class="form-check-label w-100" for="q1a">Solving problems</label>
+                                        <label class="form-check-label w-100" for="q1a">
+                                            <strong>🔧 Technical Work</strong><br>
+                                            <small class="text-muted">Solving problems, working with technology</small>
+                                        </label>
                                     </div>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
                                         <input class="form-check-input" type="radio" name="q1" value="people" id="q1b">
-                                        <label class="form-check-label w-100" for="q1b">Helping people</label>
+                                        <label class="form-check-label w-100" for="q1b">
+                                            <strong>👥 Helping People</strong><br>
+                                            <small class="text-muted">Teaching, counseling, healthcare</small>
+                                        </label>
                                     </div>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
                                         <input class="form-check-input" type="radio" name="q1" value="creative" id="q1c">
-                                        <label class="form-check-label w-100" for="q1c">Creating/designing</label>
+                                        <label class="form-check-label w-100" for="q1c">
+                                            <strong>🎨 Creative Work</strong><br>
+                                            <small class="text-muted">Designing, writing, arts</small>
+                                        </label>
                                     </div>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
                                         <input class="form-check-input" type="radio" name="q1" value="business" id="q1d">
-                                        <label class="form-check-label w-100" for="q1d">Organising tasks</label>
+                                        <label class="form-check-label w-100" for="q1d">
+                                            <strong>📊 Business Work</strong><br>
+                                            <small class="text-muted">Managing, organizing, planning</small>
+                                        </label>
                                     </div>
                                 </div>
 
+                                <!-- Question 2 -->
                                 <div class="question">
-                                    <h5 class="mb-4">2. Which environment do you prefer to work in?</h5>
+                                    <h5 class="mb-4">2. Which skills are you strongest in?</h5>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q2" value="business" id="q2a">
-                                        <label class="form-check-label w-100" for="q2a">Office/business</label>
+                                        <input class="form-check-input" type="radio" name="q2" value="tech" id="q2a">
+                                        <label class="form-check-label w-100" for="q2a">
+                                            <strong>💻 Technical Skills</strong><br>
+                                            <small class="text-muted">Computers, programming, analysis</small>
+                                        </label>
                                     </div>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q2" value="creative" id="q2b">
-                                        <label class="form-check-label w-100" for="q2b">Creative/flexible</label>
+                                        <input class="form-check-input" type="radio" name="q2" value="people" id="q2b">
+                                        <label class="form-check-label w-100" for="q2b">
+                                            <strong>🗣️ Communication Skills</strong><br>
+                                            <small class="text-muted">Talking, explaining, listening</small>
+                                        </label>
                                     </div>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q2" value="people" id="q2c">
-                                        <label class="form-check-label w-100" for="q2c">Educational/training</label>
+                                        <input class="form-check-input" type="radio" name="q2" value="creative" id="q2c">
+                                        <label class="form-check-label w-100" for="q2c">
+                                            <strong>✨ Creative Skills</strong><br>
+                                            <small class="text-muted">Drawing, designing, imagining</small>
+                                        </label>
                                     </div>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q2" value="people" id="q2d">
-                                        <label class="form-check-label w-100" for="q2d">Health/community</label>
+                                        <input class="form-check-input" type="radio" name="q2" value="business" id="q2d">
+                                        <label class="form-check-label w-100" for="q2d">
+                                            <strong>📈 Planning Skills</strong><br>
+                                            <small class="text-muted">Organizing, leading, managing</small>
+                                        </label>
                                     </div>
                                 </div>
 
+                                <!-- Question 3 -->
                                 <div class="question">
-                                    <h5 class="mb-4">3. Which statement describes you best?</h5>
+                                    <h5 class="mb-4">3. What's your ideal work environment?</h5>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q3" value="business" id="q3a">
-                                        <label class="form-check-label w-100" for="q3a">Planning & organising</label>
+                                        <input class="form-check-input" type="radio" name="q3" value="tech" id="q3a">
+                                        <label class="form-check-label w-100" for="q3a">
+                                            <strong>🖥️ Tech Office</strong><br>
+                                            <small class="text-muted">Computers, quiet space, equipment</small>
+                                        </label>
                                     </div>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q3" value="creative" id="q3b">
-                                        <label class="form-check-label w-100" for="q3b">Creative ideas</label>
+                                        <input class="form-check-input" type="radio" name="q3" value="people" id="q3b">
+                                        <label class="form-check-label w-100" for="q3b">
+                                            <strong>🏫 Community Space</strong><br>
+                                            <small class="text-muted">Schools, hospitals, offices with people</small>
+                                        </label>
                                     </div>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q3" value="people" id="q3c">
-                                        <label class="form-check-label w-100" for="q3c">Good communication</label>
+                                        <input class="form-check-input" type="radio" name="q3" value="creative" id="q3c">
+                                        <label class="form-check-label w-100" for="q3c">
+                                            <strong>🎭 Studio/Workspace</strong><br>
+                                            <small class="text-muted">Flexible, artistic, colorful</small>
+                                        </label>
                                     </div>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q3" value="tech" id="q3d">
-                                        <label class="form-check-label w-100" for="q3d">Problem solving</label>
+                                        <input class="form-check-input" type="radio" name="q3" value="business" id="q3d">
+                                        <label class="form-check-label w-100" for="q3d">
+                                            <strong>🏢 Corporate Office</strong><br>
+                                            <small class="text-muted">Structured, professional, meeting rooms</small>
+                                        </label>
                                     </div>
                                 </div>
 
+                                <!-- Question 4 -->
                                 <div class="question">
-                                    <h5 class="mb-4">4. What do people often compliment you on?</h5>
+                                    <h5 class="mb-4">4. How do you prefer to work?</h5>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q4" value="business" id="q4a">
-                                        <label class="form-check-label w-100" for="q4a">Leadership</label>
+                                        <input class="form-check-input" type="radio" name="q4" value="tech" id="q4a">
+                                        <label class="form-check-label w-100" for="q4a">
+                                            <strong>👨‍💻 Independently</strong><br>
+                                            <small class="text-muted">Focusing alone on tasks</small>
+                                        </label>
                                     </div>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q4" value="creative" id="q4b">
-                                        <label class="form-check-label w-100" for="q4b">Creativity</label>
+                                        <input class="form-check-input" type="radio" name="q4" value="people" id="q4b">
+                                        <label class="form-check-label w-100" for="q4b">
+                                            <strong>🤝 In a Team</strong><br>
+                                            <small class="text-muted">Collaborating with others</small>
+                                        </label>
                                     </div>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q4" value="people" id="q4c">
-                                        <label class="form-check-label w-100" for="q4c">Responsibility</label>
+                                        <input class="form-check-input" type="radio" name="q4" value="creative" id="q4c">
+                                        <label class="form-check-label w-100" for="q4c">
+                                            <strong>🎯 Freely & Creatively</strong><br>
+                                            <small class="text-muted">No strict rules, creative freedom</small>
+                                        </label>
                                     </div>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q4" value="tech" id="q4d">
-                                        <label class="form-check-label w-100" for="q4d">Technical/practical skills</label>
+                                        <input class="form-check-input" type="radio" name="q4" value="business" id="q4d">
+                                        <label class="form-check-label w-100" for="q4d">
+                                            <strong>👨‍💼 Leading Others</strong><br>
+                                            <small class="text-muted">Managing projects and people</small>
+                                        </label>
                                     </div>
                                 </div>
 
+                                <!-- Question 5 -->
                                 <div class="question">
-                                    <h5 class="mb-4">5. How confident are you in learning new skills?</h5>
+                                    <h5 class="mb-4">5. What motivates you most?</h5>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
                                         <input class="form-check-input" type="radio" name="q5" value="tech" id="q5a">
-                                        <label class="form-check-label w-100" for="q5a">Very confident</label>
+                                        <label class="form-check-label w-100" for="q5a">
+                                            <strong>⚡ Solving Challenges</strong><br>
+                                            <small class="text-muted">Overcoming difficult problems</small>
+                                        </label>
                                     </div>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q5" value="business" id="q5b">
-                                        <label class="form-check-label w-100" for="q5b">Confident</label>
+                                        <input class="form-check-input" type="radio" name="q5" value="people" id="q5b">
+                                        <label class="form-check-label w-100" for="q5b">
+                                            <strong>❤️ Helping Others</strong><br>
+                                            <small class="text-muted">Making a positive impact</small>
+                                        </label>
                                     </div>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q5" value="people" id="q5c">
-                                        <label class="form-check-label w-100" for="q5c">Not very confident</label>
+                                        <input class="form-check-input" type="radio" name="q5" value="creative" id="q5c">
+                                        <label class="form-check-label w-100" for="q5c">
+                                            <strong>🎨 Creating Things</strong><br>
+                                            <small class="text-muted">Making something new and beautiful</small>
+                                        </label>
                                     </div>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q5" value="people" id="q5d">
-                                        <label class="form-check-label w-100" for="q5d">Need guidance</label>
+                                        <input class="form-check-input" type="radio" name="q5" value="business" id="q5d">
+                                        <label class="form-check-label w-100" for="q5d">
+                                            <strong>📈 Achieving Success</strong><br>
+                                            <small class="text-muted">Career growth and recognition</small>
+                                        </label>
                                     </div>
                                 </div>
 
+                                <!-- Question 6 -->
                                 <div class="question">
-                                    <h5 class="mb-4">6. Which skill do you feel strongest in?</h5>
+                                    <h5 class="mb-4">6. How do you prefer to learn?</h5>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q6" value="people" id="q6a">
-                                        <label class="form-check-label w-100" for="q6a">Communication</label>
+                                        <input class="form-check-input" type="radio" name="q6" value="tech" id="q6a">
+                                        <label class="form-check-label w-100" for="q6a">
+                                            <strong>🛠️ Hands-on Practice</strong><br>
+                                            <small class="text-muted">Trying things out, experimenting</small>
+                                        </label>
                                     </div>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q6" value="creative" id="q6b">
-                                        <label class="form-check-label w-100" for="q6b">Creativity</label>
+                                        <input class="form-check-input" type="radio" name="q6" value="people" id="q6b">
+                                        <label class="form-check-label w-100" for="q6b">
+                                            <strong>👥 From Others</strong><br>
+                                            <small class="text-muted">Teachers, mentors, group learning</small>
+                                        </label>
                                     </div>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q6" value="tech" id="q6c">
-                                        <label class="form-check-label w-100" for="q6c">Problem-solving</label>
+                                        <input class="form-check-input" type="radio" name="q6" value="creative" id="q6c">
+                                        <label class="form-check-label w-100" for="q6c">
+                                            <strong>🎯 Creative Exploration</strong><br>
+                                            <small class="text-muted">Exploring ideas, self-directed</small>
+                                        </label>
                                     </div>
                                     <div class="form-check mb-3 p-3 border rounded hover-option">
                                         <input class="form-check-input" type="radio" name="q6" value="business" id="q6d">
-                                        <label class="form-check-label w-100" for="q6d">Organisation</label>
+                                        <label class="form-check-label w-100" for="q6d">
+                                            <strong>📚 Structured Courses</strong><br>
+                                            <small class="text-muted">Classes, workshops, certifications</small>
+                                        </label>
                                     </div>
                                 </div>
 
-                                <div class="question">
-                                    <h5 class="mb-4">7. How do you prefer to work?</h5>
-                                    <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q7" value="tech" id="q7a">
-                                        <label class="form-check-label w-100" for="q7a">Independently</label>
-                                    </div>
-                                    <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q7" value="people" id="q7b">
-                                        <label class="form-check-label w-100" for="q7b">In a team</label>
-                                    </div>
-                                    <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q7" value="business" id="q7c">
-                                        <label class="form-check-label w-100" for="q7c">Leading others</label>
-                                    </div>
-                                    <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q7" value="people" id="q7d">
-                                        <label class="form-check-label w-100" for="q7d">With guidance</label>
-                                    </div>
-                                </div>
-
-                                <div class="question">
-                                    <h5 class="mb-4">8. What motivates you most at work?</h5>
-                                    <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q8" value="business" id="q8a">
-                                        <label class="form-check-label w-100" for="q8a">Career growth</label>
-                                    </div>
-                                    <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q8" value="people" id="q8b">
-                                        <label class="form-check-label w-100" for="q8b">Helping others</label>
-                                    </div>
-                                    <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q8" value="creative" id="q8c">
-                                        <label class="form-check-label w-100" for="q8c">Creativity & freedom</label>
-                                    </div>
-                                    <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q8" value="business" id="q8d">
-                                        <label class="form-check-label w-100" for="q8d">Stability & security</label>
-                                    </div>
-                                </div>
-
-                                <div class="question">
-                                    <h5 class="mb-4">9. What is your main career goal?</h5>
-                                    <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q9" value="business" id="q9a">
-                                        <label class="form-check-label w-100" for="q9a">Professional growth</label>
-                                    </div>
-                                    <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q9" value="people" id="q9b">
-                                        <label class="form-check-label w-100" for="q9b">Work-life balance</label>
-                                    </div>
-                                    <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q9" value="people" id="q9c">
-                                        <label class="form-check-label w-100" for="q9c">Positive impact</label>
-                                    </div>
-                                    <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q9" value="business" id="q9d">
-                                        <label class="form-check-label w-100" for="q9d">Financial stability</label>
-                                    </div>
-                                </div>
-
-                                <div class="question">
-                                    <h5 class="mb-4">10. Are you open to learning new skills?</h5>
-                                    <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q10" value="tech" id="q10a">
-                                        <label class="form-check-label w-100" for="q10a">Yes, definitely</label>
-                                    </div>
-                                    <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q10" value="business" id="q10b">
-                                        <label class="form-check-label w-100" for="q10b">Yes, with guidance</label>
-                                    </div>
-                                    <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q10" value="people" id="q10c">
-                                        <label class="form-check-label w-100" for="q10c">Maybe</label>
-                                    </div>
-                                    <div class="form-check mb-3 p-3 border rounded hover-option">
-                                        <input class="form-check-input" type="radio" name="q10" value="people" id="q10d">
-                                        <label class="form-check-label w-100" for="q10d">Not sure</label>
-                                    </div>
-                                </div>
-
+                                <!-- Navigation Buttons -->
                                 <div class="d-flex justify-content-between mt-5 pt-3 border-top">
-                                    <button type="button" class="btn btn-outline-secondary px-4 rounded-pill" onclick="prevQuestion()">Back</button>
-                                    <button type="button" class="btn btn-primary px-4 rounded-pill" id="nextBtn" onclick="nextQuestion()" disabled>Next <i class="bi bi-arrow-right"></i></button>
+                                    <button type="button" class="btn btn-outline-secondary px-4 rounded-pill" onclick="prevQuestion()">
+                                        <i class="bi bi-arrow-left"></i> Back
+                                    </button>
+                                    <button type="button" class="btn btn-primary px-4 rounded-pill" id="nextBtn" onclick="nextQuestion()" disabled>
+                                        Next <i class="bi bi-arrow-right"></i>
+                                    </button>
                                 </div>
                             </form>
 
+                            <!-- Results Section -->
                             <div id="result-section">
                                 <div class="text-center mb-5">
                                     <h2 id="result-display" class="text-primary mb-3 display-6 fw-bold"></h2>
                                     <p class="lead">Based on your answers, here's your career recommendation</p>
                                 </div>
 
+                                <!-- Results Cards (3 Columns) -->
                                 <div class="row g-4 mb-5">
                                     <div class="col-md-4">
                                         <div class="card h-100 border-0 shadow-sm card-result">
@@ -292,17 +304,23 @@
                                                 <h5 class="mb-0 py-2">Key Skills</h5>
                                             </div>
                                             <div class="card-body">
-                                                <ul id="skill-list" class="list-unstyled mb-0 text-center"></ul>
+                                                <ul id="skill-list" class="list-unstyled mb-0"></ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
+                                <!-- Action Buttons -->
                                 <div class="text-center mb-5 button-group">
-                                    <button class="btn btn-outline-primary btn-lg rounded-pill me-3" onclick="window.print()"><i class="bi bi-printer"></i> Print My Result</button>
-                                    <button class="btn btn-primary btn-lg rounded-pill" onclick="location.reload()"><i class="bi bi-arrow-repeat"></i> Submit Another Response</button>
+                                    <button class="btn btn-outline-primary btn-lg rounded-pill me-3" onclick="window.print()">
+                                        <i class="bi bi-printer"></i> Print My Result
+                                    </button>
+                                    <button class="btn btn-primary btn-lg rounded-pill" onclick="restartQuiz()">
+                                        <i class="bi bi-arrow-repeat"></i> Try Again
+                                    </button>
                                 </div>
 
+                                <!-- Feedback Section -->
                                 <div id="feedback-area" class="mt-5 pt-5 border-top">
                                     <h3 class="mb-3 text-center">Feedback Form</h3>
                                     <p class="text-muted text-center mb-4">How was your experience with this quiz?</p>
@@ -310,7 +328,9 @@
                                         <div class="col-md-8">
                                             <textarea id="feedbackText" class="form-control mb-3" placeholder="Your thoughts..." rows="4"></textarea>
                                             <div class="text-center">
-                                                <button class="btn btn-success rounded-pill px-5" onclick="submitFeedback()">Submit Feedback</button>
+                                                <button class="btn btn-success rounded-pill px-5" onclick="submitFeedback()">
+                                                    Submit Feedback
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -325,6 +345,7 @@
         </div>
     </main>
 
+    <!-- Footer (from Tutorial 2 - Sectioning Elements) -->
     <footer class="py-4 text-center border-top mt-auto custom-footer">
         <div class="footer-container">
             <p class="mb-1 footer-text">Created for ITT588 Group Project</p>
@@ -335,7 +356,9 @@
         </div>
     </footer>
 
+    <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Modified JavaScript -->
     <script src="quizscript.js"></script>
 </body>
 </html>
