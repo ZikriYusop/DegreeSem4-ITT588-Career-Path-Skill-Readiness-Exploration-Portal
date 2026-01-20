@@ -1,170 +1,47 @@
-/* General Layout */
-/* vh = viewpoint */
-body {
-    transition: background-color 0.3s, color 0.3s;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Glass Navbar */
-.navbar-glass {
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-    background-color: rgba(206, 158, 235, 0.85);
-}
-
-.logouitm {
-  height: 40px;
-  width: auto;
-}
-
-@media (max-width: 576px) {
-  .logouitm {
-    height: 30px;
-  }
-}
-
-/* Background Gradient untuk Quiz (Hero style) */
-.hero-section-quiz {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    min-height: 80vh;
-}
-
-/* Card Hover Effects */
-.card-custom {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 15px;
-}
-
-.card-custom:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
-}
-
-/* Footer Styles */
-.custom-footer {
-    background-color: rgb(142, 163, 228); /* Warna asal footer Home */
-}
-
-.footer-text {
-    color: rgba(0, 0, 0, 1);
-}
-
-/* --- DESIGN KHUSUS QUIZ (QUIZCSS.CSS) --- */
-
-/* Logic Display (Sembunyikan soalan lain) */
-.question {
-    display: none; 
-}
-
-.question.active {
-    display: block; 
-    animation: fadeIn 0.4s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-#result-section {
-    display: none;
-}
-
-/* Hover effect untuk pilihan jawapan */
-.hover-option {
-    transition: all 0.2s ease;
-    cursor: pointer;
-}
-
-.hover-option:hover {
-    background-color: rgba(13, 110, 253, 0.1); /* Biru cair */
-    border-color: #0d6efd !important;
-}
-
-/* Customize Radio Buttons */
-.form-check-input:checked {
-    background-color: #0d6efd;
-    border-color: #0d6efd;
-}
-
-/* Skill Tags Styles */
+/* Add this to your existing CSS file */
 #skill-list li {
     background-color: #e7f1ff;
     color: #0d6efd;
     padding: 8px 16px;
-    margin: 5px;
+    margin: 5px 0;
     border-radius: 20px;
-    display: inline-block;
+    display: block;
     font-weight: 600;
+    text-align: center;
+    transition: transform 0.3s;
+}
+/* ===== MAIN LAYOUT OVERRIDE (Bootstrap-safe) ===== */
+.main-wrapper {
+    min-height: 100vh; /* full screen height */
 }
 
-/* Print Styles */
-@media print {
-    nav, footer, .button-group, #feedback-area, .progress, .btn {
-        display: none !important;
-    }
-    
-    .card {
-        border: 1px solid #ddd !important;
-        box-shadow: none !important;
-    }
-    
-    #result-section {
-        display: block !important;
-    }
-    
-    body {
-        background: white !important;
-    }
+/* Control quiz width */
+.main-wrapper .container {
+    max-width: 1000px; /* adjust if needed */
 }
 
-/* --- DARK MODE OVERRIDES (Untuk konsistensi) --- */
-
-[data-bs-theme="dark"] body {
-    background-color: #121212;
-    color: #e0e0e0;
+#skill-list li:hover {
+    transform: scale(1.05);
+    background-color: #d0e3ff;
+}
+.question {
+    display: none;
 }
 
-[data-bs-theme="dark"] .hero-section-quiz {
-    background: linear-gradient(135deg, #1f2833 0%, #0b0c10 100%);
+.question.active {
+    display: block;
+}
+/* Hide result section before quiz is completed */
+#result-section {
+    display: none;
 }
 
-[data-bs-theme="dark"] .navbar-glass {
-    background-color: rgba(33, 37, 41, 0.85);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-[data-bs-theme="dark"] .card-custom, 
-[data-bs-theme="dark"] .card-result {
-    background-color: #1e1e1e;
-    color: #fff;
-    border-color: #333;
-}
-
-[data-bs-theme="dark"] .text-muted {
-    color: #a0a0a0 !important;
-}
-
-[data-bs-theme="dark"] .hover-option {
-    border-color: #444 !important;
-}
-
-[data-bs-theme="dark"] .hover-option:hover {
-    background-color: rgba(13, 110, 253, 0.2);
-}
-
+/* For dark mode */
 [data-bs-theme="dark"] #skill-list li {
     background-color: #0d6efd;
     color: white;
 }
 
-[data-bs-theme="dark"] .custom-footer {
-    background-color: #1a1a1a; /* Dark Grey background */
-    border-top: 1px solid #333; /* Subtle border line */
-}
-
-[data-bs-theme="dark"] .footer-text {
-    color: #e0e0e0; /* Light text so it's readable */
+[data-bs-theme="dark"] #skill-list li:hover {
+    background-color: #0b5ed7;
 }
